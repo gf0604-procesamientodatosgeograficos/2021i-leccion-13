@@ -24,23 +24,18 @@ library(dplyr)
 **Datos hidrológicos**  
 ```{r}
 # Carga de datos desde un archivo CSV
-rios <- 
-  read.csv(
-    file='https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/hidrologia/fdc/FDC.csv' 
-  )
+rios <-
+  read.csv(file = 'https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/hidrologia/fdc/FDC.csv')
 ```
 
 **Casos de COVID-19 en Costa Rica**  
 ```{r}
 # Carga de datos desde un archivo CSV
-# covid <- 
-#   read.csv(
-#     file='https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/ministerio-salud/covid/ultimafecha_CSV_GENERAL.csv', 
-#     sep = ","
-#   )
+covid <-
+  read.csv(file = 'https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/ministerio-salud/covid/ultimafecha_CSV_GENERAL.csv')
 ```
 
-# dplyr
+# El paquete dplyr
 El paquete [dplyr](https://dplyr.tidyverse.org/) de [Tidyverse](https://www.tidyverse.org/) es descrito como una *"gramática para la manipulación de datos, la cual proporciona un conjunto consistente de verbos que ayuda a solucionar los retos de manipulación de datos más comunes"*. Los principales "verbos" (i.e. funciones) de esta gramática son:
 
 * [mutate()](https://dplyr.tidyverse.org/reference/mutate.html): crea nuevas variables, las cuales se expresan como funciones de variables existentes.
@@ -95,3 +90,25 @@ str(rios)
 slice_head(rios, n = 5)
 ```
 
+## La función ```select()```
+La función [select()](https://dplyr.tidyverse.org/reference/select.html) selecciona variables con base en sus nombres.
+
+El siguiente bloque de código selecciona un conjunto de variables del data frame de datos de COVID-19 en Costa Rica y guarda el resultado en un nuevo data frame.
+
+```{r}
+# Selección, renombramiento y conversión de columnas 
+covid_cols_seleccionadas <-
+  covid %>%
+  select(FECHA, muj_posi, hom_posi) %>%
+  rename(
+    fecha = FECHA,
+    positivos_mujeres = muj_posi,
+    positivos_hombres = hom_posi
+  ) %>%
+  mutate(
+    fecha = strptime(fecha, format = "%d/%m/%Y")
+  )
+
+# Despliegue de una muestra aleatoria de los registros
+slice_sample(covid_cols_seleccionadas, n = 5)
+```
