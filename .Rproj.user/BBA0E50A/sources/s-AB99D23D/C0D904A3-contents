@@ -1,0 +1,97 @@
+---
+title: "Tidyverse"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Preparativos
+
+## Carga de paquetes
+
+```{r message = FALSE}
+# Carga de dplyr
+library(dplyr)
+```
+
+## Conjuntos de datos utilizados
+
+**Datos hidrológicos**  
+```{r}
+# Carga de datos desde un archivo CSV
+rios <- 
+  read.csv(
+    file='https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/hidrologia/fdc/FDC.csv' 
+  )
+```
+
+**Casos de COVID-19 en Costa Rica**  
+```{r}
+# Carga de datos desde un archivo CSV
+# covid <- 
+#   read.csv(
+#     file='https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/ministerio-salud/covid/ultimafecha_CSV_GENERAL.csv', 
+#     sep = ","
+#   )
+```
+
+# dplyr
+El paquete [dplyr](https://dplyr.tidyverse.org/) de [Tidyverse](https://www.tidyverse.org/) es descrito como una *"gramática para la manipulación de datos, la cual proporciona un conjunto consistente de verbos que ayuda a solucionar los retos de manipulación de datos más comunes"*. Los principales "verbos" (i.e. funciones) de esta gramática son:
+
+* [mutate()](https://dplyr.tidyverse.org/reference/mutate.html): crea nuevas variables, las cuales se expresan como funciones de variables existentes.
+
+* [select()](https://dplyr.tidyverse.org/reference/select.html): selecciona variables con base en sus nombres.
+
+* [filter()](https://dplyr.tidyverse.org/reference/filter.html): selecciona observaciones con base en sus valores.
+
+* [summarise()](https://dplyr.tidyverse.org/reference/summarise.html): agrupa y resume valores.
+
+* [arrange()](https://dplyr.tidyverse.org/reference/arrange.html): cambia el orden de los registros.
+
+Todas estas operaciones pueden combinarse con la función [group_by()](https://dplyr.tidyverse.org/reference/group_by.html), la cual ejecuta cualquiera de las operaciones anteriores "en grupo". Además, dplyr proporciona [funciones adicionales](https://dplyr.tidyverse.org/reference/index.html) para tareas más específicas.
+
+Todas las funciones de dplyr trabajan de manera similar:
+
+1. El primer argumento es un data frame. Puede omitirse si la función recibe el data frame a través del operador *pipe*.
+2. Los argumentos siguientes describen que hacer con el data frame, utilizando los nombres de las variables (sin comillas).  
+3. El resultado es un nuevo data frame.
+
+Las funciones de dplyr pueden encadenarse a través del operador [*pipe* (%>%)](https://magrittr.tidyverse.org/reference/pipe.html) (tubo), para formar *pipelines* (tuberías). En este contexto, un *pipeline* consiste de una cadena de procesos conectados de forma tal que la salida de cada proceso de la cadena es la entrada del próximo. Esto permite la comunicación y sincronización entre los procesos.
+
+## La función ```mutate()```
+La función [mutate()](https://dplyr.tidyverse.org/reference/mutate.html) crea nuevas variables en un data frame, las cuales se expresan como funciones de variables existentes. También puede utilizarse para recalcular una variable ya existente.
+
+En el siguiente bloque de código, se utiliza ```mutate()``` para crear una nueva variable en el data frame de datos de ríos. Se utilizan también otras funciones para renombrar las columnas y desplegar los datos.
+
+```{r}
+# Despliegue de la estructura del data frame
+str(rios)
+
+# Despliegue de los primeros registros
+slice_head(rios, n = 5)
+
+# Cambio de nombre de las columnas mediante rename()
+rios <-
+  rios %>%
+  rename(fecha = Tiempo,
+         pandora = Pandora.mm..637km2.,
+         banano = Banano.mm..90km2.)
+
+# Conversión de una columna a tipo Date y creación de una nueva columna
+rios <-
+  rios %>%
+  mutate(fecha = strptime(fecha, format = "%m/%d/%Y"),
+         promedio = (pandora + banano) / 2)
+
+# Verificación de los cambios en la estructura del data frame
+str(rios)
+
+# Visualización de los valores de la nueva columna
+slice_head(rios, n = 5)
+```
+
