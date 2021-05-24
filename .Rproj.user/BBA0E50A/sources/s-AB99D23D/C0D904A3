@@ -3,7 +3,7 @@
     "path": "C:/Users/mfvargas/gf0604-procesamientodatosgeograficos/2021i/2021i-leccion-13/02-r-tidyverse-dplyr.Rmd",
     "project_path": "02-r-tidyverse-dplyr.Rmd",
     "type": "r_markdown",
-    "hash": "3646098252",
+    "hash": "2057293497",
     "contents": "",
     "dirty": false,
     "created": 1621747704179.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "108,48",
-        "scrollLine": "99"
+        "cursorPosition": "1,25",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1621808099,
+    "lastKnownWriteTime": 1621814709,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1621808099570,
+    "last_content_update": 1621814709343,
     "read_only": false,
     "read_only_alternatives": []
 }
