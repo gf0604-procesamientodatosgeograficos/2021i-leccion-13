@@ -86,31 +86,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: GF0604 Procesamiento de datos geográficos 2021-I. Lección 13</title>
+  <title>GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: Tidyverse - ggplot2</title>
 
-  <meta property="description" itemprop="description" content="Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13."/>
 
   <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"/>
 
-  <meta name="article:author" content="Manuel Vargas"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: GF0604 Procesamiento de datos geográficos 2021-I. Lección 13"/>
+  <meta property="og:title" content="GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: Tidyverse - ggplot2"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: GF0604 Procesamiento de datos geográficos 2021-I. Lección 13"/>
-  <meta property="twitter:description" content="Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13."/>
+  <meta property="twitter:title" content="GF0604 Procesamiento de datos geograficos 2021-I. Leccion 13: Tidyverse - ggplot2"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","description","site"]}},"value":[{"type":"character","attributes":{},"value":["GF0604 Procesamiento de datos geográficos 2021-I. Lección 13"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Manuel Vargas"]},{"type":"character","attributes":{},"value":["https://github.com/mfvargas"]},{"type":"character","attributes":{},"value":["Universidad de Costa Rica"]},{"type":"character","attributes":{},"value":["https://www.ucr.ac.cr/"]}]}]},{"type":"character","attributes":{},"value":["Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Tidyverse - ggplot2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[4]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2410,7 +2406,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"GF0604 Procesamiento de datos geográficos 2021-I. Lección 13","description":"Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13.","authors":[{"author":"Manuel Vargas","authorURL":"https://github.com/mfvargas","affiliation":"Universidad de Costa Rica","affiliationURL":"https://www.ucr.ac.cr/","orcidID":""}]}
+{"title":"Tidyverse - ggplot2","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2442,40 +2438,134 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>GF0604 Procesamiento de datos geográficos 2021-I. Lección 13</h1>
+<h1>Tidyverse - ggplot2</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Curso GF0604 Procesamiento de datos geográficos. Escuela de Geografía, Universidad de Costa Rica. Primer ciclo lectivo 2021. Lección 13.</p></p>
-</div>
-
-<div class="d-byline">
-  Manuel Vargas <a href="https://github.com/mfvargas" class="uri">https://github.com/mfvargas</a> (Universidad de Costa Rica)<a href="https://www.ucr.ac.cr/" class="uri">https://www.ucr.ac.cr/</a>
-  
 
 </div>
+
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#resumen">Resumen</a></li>
-<li><a href="#trabajo-previo">Trabajo previo</a></li>
-<li><a href="#contenidos">Contenidos</a></li>
+<li><a href="#preparativos">Preparativos</a>
+<ul>
+<li><a href="#carga-de-paquetes">Carga de paquetes</a></li>
+<li><a href="#conjuntos-de-datos-utilizados">Conjuntos de datos utilizados</a></li>
+</ul></li>
+<li><a href="#el-paquete-ggplot2">El paquete ggplot2</a>
+<ul>
+<li><a href="#ejemplos-de-uso">Ejemplos de uso</a>
+<ul>
+<li><a href="#histogramas">Histogramas</a></li>
+<li><a href="#gráficos-de-línea">Gráficos de línea</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 </div>
-<h1 id="resumen">Resumen</h1>
-<p>En esta lección se estudia Tidyverse, una colección de paquetes de R enfocados en ciencia de datos.</p>
-<h1 id="trabajo-previo">Trabajo previo</h1>
+<h1 id="preparativos">Preparativos</h1>
+<h2 id="carga-de-paquetes">Carga de paquetes</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Carga de dplyr</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+
+<span class='co'># Carga de ggplot2</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="conjuntos-de-datos-utilizados">Conjuntos de datos utilizados</h2>
+<strong>Datos hidrológicos</strong><br />
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Carga de datos desde un archivo CSV</span>
+<span class='va'>rios</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/hidrologia/fdc/FDC.csv'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<strong>Casos de COVID-19 en Costa Rica</strong><br />
+
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Carga de datos desde un archivo CSV</span>
+<span class='va'>covid</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'https://raw.githubusercontent.com/gf0604-procesamientodatosgeograficos/2021i-datos/main/ministerio-salud/covid/ultimafecha_CSV_GENERAL.csv'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h1 id="el-paquete-ggplot2">El paquete ggplot2</h1>
+<p>El paquete <a href="https://ggplot2.tidyverse.org/">ggplot2</a> de <a href="https://www.tidyverse.org/">Tidyverse</a> es un sistema para la creación de gráficos de manera declarativa, basado en el libro <a href="https://amzn.to/2ef1eWp">Wilkinson, L. (2005). The Grammar of Graphics</a>. En <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">Wickham, H. (20210) A Layered Grammar of Graphics</a>, puede encontrarse una versión resumida y enfocada en la implementación de ggplot2.</p>
+<p>El programador proporciona los datos, indica como mapear las variables a elementos visuales (<em>aesthetics</em>), cuales geometrías utilizar y ggplot se encarga de los detalles. Por lo general, para construir un gráfico con ggplot2 se siguen los siguientes pasos:</p>
 <ul>
-<li>Lea los capítulos del 1 al 8 de <a href="https://r4ds.had.co.nz/">Wickham, H., &amp; Grolemund, G. (2017). R for Data Science: Import, Tidy, Transform,Visualize, and Model Data</a>.</li>
+<li><p>Se llama a la función <a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a>, para inicializar el gráfico:</p></li>
+<li><p>A través de la función <a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a>, se especifica el mapeo de las variables a elementos visuales.</p></li>
+<li><p>Luego se agregan:</p>
+<ul>
+<li>Capas (ej. <a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a>, <a href="https://ggplot2.tidyverse.org/reference/geom_freqpoly.html">geom_histogram()</a>).<br />
+</li>
+<li>Escalas (ej. <a href="https://ggplot2.tidyverse.org/reference/scale_colour_brewer.html">scale_color_brewer()</a>).<br />
+</li>
+<li><em>Faceting</em> (ej. <a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a>).<br />
+</li>
+<li>Sistemas de coordenadas (ej. <a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a>).</li>
+</ul></li>
 </ul>
-<h1 id="contenidos">Contenidos</h1>
-<p><a href="01-r-tidyverse.html">01 Introducción a Tidyverse</a><br />
-<a href="02-r-tidyverse-dplyr.html">02 El paquete dplyr</a><br />
-<a href="03-r-tidyverse-ggplot2.html">03 El paquete ggplot2</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Se puede generalizar el uso de ggplot2 mediante el siguiente formato:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATOS<span class="sc">&gt;</span>, <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPEOS<span class="sc">&gt;</span>)) <span class="sc">+</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCION<span class="sc">&gt;</span>(<span class="sc">&lt;</span>OPCIONES<span class="sc">&gt;</span>)</span></code></pre></div>
+</div>
+<h2 id="ejemplos-de-uso">Ejemplos de uso</h2>
+<h3 id="histogramas">Histogramas</h3>
+<p>Se generan con la función <a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Cambio de nombre de columna</span>
+<span class='va'>rios</span> <span class='op'>&lt;-</span>
+  <span class='va'>rios</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>pandora <span class='op'>=</span> <span class='va'>Pandora.mm..637km2.</span><span class='op'>)</span>
+
+<span class='co'># Histograma simple</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>rios</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>pandora</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="03-r-tidyverse-ggplot2_files/figure-html5/unnamed-chunk-5-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Histograma con opciones</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>rios</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>pandora</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>binwidth <span class='op'>=</span> <span class='fl'>1</span>,
+                 color <span class='op'>=</span> <span class='st'>"black"</span>,
+                 fill <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-r-tidyverse-ggplot2_files/figure-html5/unnamed-chunk-5-2.png" width="624" /></p>
+</div>
+<h3 id="gráficos-de-línea">Gráficos de línea</h3>
+<p>Se generan con la función <a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Cambio de nombres de columnas y conversión de la columna de fecha</span>
+<span class='va'>rios</span> <span class='op'>&lt;-</span>
+  <span class='va'>rios</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>fecha <span class='op'>=</span> <span class='va'>Tiempo</span>,
+         banano <span class='op'>=</span> <span class='va'>Banano.mm..90km2.</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>fecha <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='va'>fecha</span>, format <span class='op'>=</span> <span class='st'>"%m/%d/%Y"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Gráfico de líneas simple</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>rios</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>fecha</span>, y <span class='op'>=</span> <span class='va'>pandora</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="03-r-tidyverse-ggplot2_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

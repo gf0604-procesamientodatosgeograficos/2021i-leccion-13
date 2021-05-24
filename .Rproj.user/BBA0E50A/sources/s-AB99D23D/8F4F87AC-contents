@@ -30,3 +30,4 @@ En esta lección se estudia Tidyverse, una colección de paquetes de R enfocados
 # Contenidos
 [01 Introducción a Tidyverse](01-r-tidyverse.html)  
 [02 El paquete dplyr](02-r-tidyverse-dplyr.html)  
+[03 El paquete ggplot2](03-r-tidyverse-ggplot2.html)  
